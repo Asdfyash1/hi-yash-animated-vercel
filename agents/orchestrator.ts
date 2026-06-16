@@ -1,0 +1,1 @@
+export interface AgentTask{goal:string}; export class Orchestrator{}

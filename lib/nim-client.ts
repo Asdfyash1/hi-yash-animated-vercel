@@ -1,0 +1,1 @@
+export class NIMClient{constructor(private apiKey:string){}}
