@@ -1,0 +1,2 @@
+export interface Tool { name:string; execute(input:unknown):Promise<unknown>; }
+export class ToolRegistry { private tools=new Map<string,Tool>(); register(t:Tool){this.tools.set(t.name,t)} unregister(name:string){this.tools.delete(name)} getTool(name:string){return this.tools.get(name)} async execute(name:string,input:unknown){const t=this.tools.get(name); if(!t) throw new Error('Tool not found'); return t.execute(input);} }
