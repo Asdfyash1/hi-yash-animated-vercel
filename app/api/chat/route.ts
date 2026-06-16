@@ -1,0 +1,1 @@
+export async function POST(req:Request){ const body=await req.json(); if(!body?.message){ return Response.json({error:'message required'},{status:400}); } return new Response('streaming-not-yet-configured'); }

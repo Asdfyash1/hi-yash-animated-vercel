@@ -1,1 +1,1 @@
-export default function Page(){return <main><h1>Manus Clone Foundation</h1></main>}
+import {ChatPage} from '../components/chat-page'; export default function Page(){return <ChatPage/>}
