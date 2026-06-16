@@ -1,0 +1,1 @@
+const t=document.querySelector('.title');setInterval(()=>{t.style.transform=`scale(${1+Math.random()*0.08})`;},700);
