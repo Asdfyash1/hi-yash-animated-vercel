@@ -1,0 +1,1 @@
+export function ChatPage(){return <div>Chat UI with loading/error state placeholders</div>}
