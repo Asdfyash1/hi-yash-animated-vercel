@@ -1,4 +1,6 @@
-export interface ModelConfig{model:string;temperature?:number}
-export interface StreamingProvider{stream(prompt:string,config:ModelConfig):AsyncIterable<string>}
-export interface LLMProvider{generate(prompt:string,config:ModelConfig):Promise<string>}
-export class NVIDIAProvider implements LLMProvider,StreamingProvider{async generate(){return 'stub'} async *stream(){yield 'stub'}}
+export interface ModelConfig { model:string; temperature?:number; maxTokens?:number }
+export interface ProviderResponse { content:string; model:string }
+export interface StreamChunk { content:string; done?:boolean }
+export interface StreamingProvider { stream(messages:{role:string;content:string}[], config:ModelConfig): AsyncIterable<StreamChunk>; }
+export interface LLMProvider { generate(messages:{role:string;content:string}[], config:ModelConfig): Promise<ProviderResponse>; }
+export class NVIDIAProvider implements LLMProvider, StreamingProvider { async generate(){ throw new Error('NIM integration requires API key/runtime configuration'); } async *stream(){ yield {content:'',done:true}; } }
